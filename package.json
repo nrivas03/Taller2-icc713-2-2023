@@ -1,0 +1,15 @@
+{
+  "name": "taller2",
+  "version": "1.0.0",
+  "description": "Resolver según lo especificado en el PDF `Taller 2 - ICC713.pdf`",
+  "main": "load-games.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

@@ -3,14 +3,14 @@ const {
   getTwoByGenre,
   getGameByConsoleAndGenre,
   getGameByName,
-  getGameByGenre,
-} = require('./script');
+  getGamesByGenre,
+} = require('./src/script');
 
 const answer1 = getTwoByConsole('PS2');
 const answer2 = getTwoByGenre('Survival Horror');
 const answer3 = getGameByConsoleAndGenre('PS2', 'Survival Horror');
 const answer4 = getGameByName('Resident evil 2');
-const answer5 = getGameByGenre('Action');
+const answer5 = getGamesByGenre('Action');
 
 const formatterAnswer1 = answer1.map(
   (answ) => `${answ.name} - ${answ.video_console} - ${answ.genres.join(' ')}`
