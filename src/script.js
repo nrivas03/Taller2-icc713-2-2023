@@ -27,10 +27,14 @@ function getTwoByGenre(genre) {
     game.genres.includes(genre)
   );
 
+  if (allGamesWithGenre.length < 2) {
+    throw new Error('Not enough games with the specified genre');
+  }
+
   const randoms = getListOfUniqueRandomNumbers({
     min: 0,
     max: allGamesWithGenre.length,
-    qty: 3,
+    qty: 2,
   });
 
   const games = randoms.map((random) => {
@@ -40,8 +44,18 @@ function getTwoByGenre(genre) {
   return games;
 }
 
+
 // Get one game by console and genre
 function getGameByConsoleAndGenre(console, genre) {
+
+  if (!allGames.some((game) => game.genres.includes(genre))) {
+    throw new Error('Genre not found in any game');
+  }
+
+  if (!allGames.some((game) => game.video_console === console)) {
+    throw new Error('Console not found in any game');
+  }
+
   const allGamesByConsoleAndGenre = allGames.filter(
     (game) => game.genres.includes(genre) && game.video_console === console
   );
@@ -64,7 +78,9 @@ function getGameByName(name) {
 function getGamesByGenre(genre) {
   const gamesByGenre = allGames.filter((game) => game.genres.includes(genre));
 
-  return gamesByGenre;
+  const limitedGames = gamesByGenre.slice(0, 5);
+
+  return limitedGames;
 }
 
 module.exports = {
